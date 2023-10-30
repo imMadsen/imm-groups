@@ -43,7 +43,7 @@ local function getGroup(groupId)
     return false
 end
 
-local function setGroupState(group, key, value)
+local function setGroupState(groupId, key, value)
     local group = Groups[groupId]
     if (group) then
         group[key] = value
@@ -53,7 +53,7 @@ local function setGroupState(group, key, value)
     return false
 end
 
-local function getGroupState(group, key)
+local function getGroupState(groupId, key)
     local group = Groups[groupId]
     if (group) then
         return true, group[key]
@@ -72,7 +72,7 @@ local function addMemberToGroup(groupId, memberId)
     return false
 end
 
-local function removeMemberFromGroup(group, memberId)
+local function removeMemberFromGroup(groupId, memberId)
     local group = Groups[groupId]
     if (group) then
         group.members[tostring(memberId)] = nil
@@ -82,7 +82,7 @@ local function removeMemberFromGroup(group, memberId)
     return false
 end
 
-local function getMemberFromGroup(group, memberId)
+local function getMemberFromGroup(groupId, memberId)
     local group = Groups[groupId]
     if (group) then
         return true, group.members[tostring(memberId)]
@@ -91,7 +91,7 @@ local function getMemberFromGroup(group, memberId)
     return false
 end
 
-local function getMemberState(group, memberId, key)
+local function getMemberState(groupId, memberId, key)
     local group = Groups[groupId]
     if (group) then
         local member = group.members[tostring(memberId)]
@@ -103,7 +103,7 @@ local function getMemberState(group, memberId, key)
     return false
 end
 
-local function setMemberState(group, memberId, key, value)
+local function setMemberState(groupId, memberId, key, value)
     local group = Groups[groupId]
     if (group) then
         local member = group.members[tostring(memberId)]
